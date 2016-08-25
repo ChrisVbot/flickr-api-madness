@@ -37,9 +37,9 @@ $(function(){
     $("img").attr('src', buildURL(randomized));
     console.log(randomized)
     displayImageInfo(randomized);
-    // setTimeout(function(){
-    //   randomizeImage(photoArray);
-    //   }, 5000);
+    setTimeout(function(){
+      randomizeImage(photoArray);
+      }, 5000);
   };
 
   //gets info about photo from flickr api and also updates page via ajax
@@ -83,10 +83,13 @@ $(function(){
           .append(url)
           .text("Click for Flickr page");
         $comments
+          .empty()
           .append(randomPhoto.photo.comments._content);
         $views
+          .empty()
           .append(randomPhoto.photo.views);
         $takenOn
+          .empty()
           .append(randomPhoto.photo.dates.taken);
       },
       error: function(){
